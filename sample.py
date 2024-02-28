@@ -1,8 +1,12 @@
 import socket
 
-def get_hostname():
+def main():
+    # Get the hostname of the system
     hostname = socket.gethostname()
-    return hostname
+    
+    # Write the hostname to the specified file
+    with open('/tmp/metrics.txt', 'w') as file:
+        file.write(f'hostname: {hostname}')
 
 if __name__ == "__main__":
-    print(get_hostname())
+    main()
